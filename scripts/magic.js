@@ -34,10 +34,6 @@ const storeNum = function () {
   console.log(`currentNum: ${currentNum}`);
 };
 
-// for (let i = 0; i < ops.length - 1; i++) {
-//   ops[i].addEventListener('click', storeNum);
-// }
-
 for (const op of ops) {
   op.addEventListener('click', storeNum);
 }
