@@ -23,7 +23,7 @@ body {
   justify-content: center;
   align-content: center;
   grid-template-columns: repeat(4, 100px);
-  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 70px);
 }
 
 .screen {
@@ -33,7 +33,7 @@ body {
   align-items: flex-end;
   padding: 20px;
   color: white;
-  font-size: 2.5rem;
+  font-size: 2rem;
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -51,7 +51,8 @@ body {
 }
 
 button {
-  font-size: 1.5rem;
+  font-size: 1rem;
+  box-shadow: inset 6px 6px 20px #666;
 }
 
 button:hover {

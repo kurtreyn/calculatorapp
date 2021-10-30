@@ -34,8 +34,12 @@ const storeNum = function () {
   console.log(`currentNum: ${currentNum}`);
 };
 
-for (let i = 0; i < ops.length - 1; i++) {
-  ops[i].addEventListener('click', storeNum);
+// for (let i = 0; i < ops.length - 1; i++) {
+//   ops[i].addEventListener('click', storeNum);
+// }
+
+for (const op of ops) {
+  op.addEventListener('click', storeNum);
 }
 
 const display = function () {
@@ -57,9 +61,9 @@ const display = function () {
 
   if (!isFinite(resultNum)) {
     if (isNaN(resultNum)) {
-      resultNum = `I'm broke. Reset me.`;
+      resultNum = `does not compute`;
     } else {
-      resultNum = `Still broke`;
+      resultNum = `danger will robinson`;
     }
   }
   screen.innerText = resultNum;
