@@ -1,4 +1,6 @@
 'use strict';
+
+//set variables
 const screen = document.querySelector('.screen');
 const nums = document.querySelectorAll('[data-num]');
 const ops = document.querySelectorAll('.ops');
@@ -10,6 +12,7 @@ let oldNum = '';
 let resultNum;
 let operator;
 
+//function: sets entered number to the current number, then displays it on screen
 const setNum = function () {
   if (resultNum) {
     currentNum = this.getAttribute('data-num');
@@ -20,10 +23,12 @@ const setNum = function () {
   screen.innerText = currentNum;
 };
 
+//for of loop for number buttons which has onclick attribute which executes the setNum function
 for (const num of nums) {
   num.onclick = setNum;
 }
 
+//function which stores the current number into another variable, oldNum, once an operator is clicked
 const storeNum = function () {
   oldNum = currentNum;
   currentNum = '';
@@ -34,10 +39,12 @@ const storeNum = function () {
   console.log(`currentNum: ${currentNum}`);
 };
 
+//for of loop for operator keys which use addEventListener instead of onclick, executes the storeNum function when clicked
 for (const op of ops) {
   op.addEventListener('click', storeNum);
 }
 
+//function that converts string to floating point decimal number, determines what to do based on which operator was selected, or if an invalid entry was made (i.e. clicking an operator before the first number), then displays the result to the screen
 const display = function () {
   oldNum = parseFloat(oldNum);
   currentNum = parseFloat(currentNum);
@@ -68,16 +75,19 @@ const display = function () {
   currentNum = resultNum;
 };
 
+//delte button which uses the slice method to remove last character entered each time DEL is clicked
 const delNum = function () {
   screen.innerText = screen.innerText.slice(0, -1);
 };
 
+//function which resets all variables and clears screen
 const clearAll = function () {
   oldNum = '';
   currentNum = '';
   screen.innerText = '';
 };
 
+//event listeners for DEL, EQUAL, and AC buttons
 del.addEventListener('click', delNum);
 equals.addEventListener('click', display);
 clear.addEventListener('click', clearAll);
